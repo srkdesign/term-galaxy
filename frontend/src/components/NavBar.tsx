@@ -24,7 +24,7 @@ export default function App() {
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
-      className="min-w-full *:max-w-[1400px]"
+      className="min-w-full *:max-w-[1400px] mb-52"
     >
       {/* Logo and version */}
       <NavbarContent justify="start">
