@@ -1,9 +1,15 @@
-import { Input, Button } from "@nextui-org/react";
+import { Input } from "@nextui-org/react";
 
-export const SearchInput = ({ words, setSearchResults }) => {
+export const SearchInput = ({
+  words,
+  setSearchResults,
+}: {
+  words: any;
+  setSearchResults: any;
+}) => {
   const handleSubmit = (e: { preventDefault: () => any }) => e.preventDefault();
 
-  const handleSearchChange = (e: { target: { value: any } }) => {
+  const handleSearchChange = (e: { target: { value: string } }) => {
     if (!e.target.value) return setSearchResults(words);
 
     const resultsArray = words.filter((word: { word_en: string }) =>

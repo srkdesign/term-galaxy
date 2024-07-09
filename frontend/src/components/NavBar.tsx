@@ -10,16 +10,25 @@ import {
   Link,
   Button,
   Chip,
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
 } from "@nextui-org/react";
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const menuItems = ["Popular", "Saved", "About"];
+  const menuItems = [
+    {
+      id: 0,
+      title: "Popular",
+    },
+    {
+      id: 1,
+      title: "About",
+    },
+    {
+      id: 2,
+      title: "Saved",
+    },
+  ];
 
   return (
     <Navbar
@@ -46,7 +55,7 @@ export default function App() {
         {menuItems.map((item) => (
           <NavbarItem>
             <Link color="foreground" href="#">
-              {item}
+              {item.title}
             </Link>
           </NavbarItem>
         ))}
@@ -78,7 +87,7 @@ export default function App() {
               href="#"
               size="lg"
             >
-              {item}
+              {item.title}
             </Link>
           </NavbarMenuItem>
         ))}

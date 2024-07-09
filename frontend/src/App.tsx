@@ -24,11 +24,11 @@ function App() {
   }, []);
 
   return (
-    <div className="max-w-[1400px] h-[100vh] grid grid-rows-[auto_1fr_auto] my-0 mx-auto ">
+    <div className="max-w-[1400px] min-h-full grid grid-rows-[auto_1fr_auto] my-0 mx-auto ">
       <NavBar></NavBar>
       <section
         id="hero"
-        className="flex flex-col justify-center items-center px-6 font-serif text-balance text-center pb-24"
+        className="flex flex-col min-h-full justify-center items-center px-6 font-serif text-balance text-center pb-24"
       >
         <h1 className="text-4xl md:text-6xl font-bold mb-3">
           Mastering Economic Terminology
