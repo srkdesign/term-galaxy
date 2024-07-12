@@ -7,7 +7,7 @@ const List = ({ searchResults }: { searchResults: Array<string> }) => {
 
   const content = results?.length ? results.slice(0, 5) : <p>No results</p>;
 
-  return <main>{content}</main>;
+  return <main className="grow">{content}</main>;
 };
 
 export default List;

@@ -17,7 +17,7 @@ export default function App() {
 
   const menuItems = [
     {
-      id: 0,
+      d_id: 0,
       title: "Popular",
     },
     {
@@ -53,7 +53,7 @@ export default function App() {
       {/* Menu List */}
       <NavbarContent className="hidden sm:flex gap-12" justify="center">
         {menuItems.map((item) => (
-          <NavbarItem>
+          <NavbarItem key={`${item.id}`}>
             <Link color="foreground" href="#">
               {item.title}
             </Link>
@@ -73,20 +73,9 @@ export default function App() {
       </NavbarContent>
       {/* Mobile Menu */}
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              color={
-                index === 2
-                  ? "primary"
-                  : index === menuItems.length - 1
-                  ? "danger"
-                  : "foreground"
-              }
-              className="w-full"
-              href="#"
-              size="lg"
-            >
+        {menuItems.map((item) => (
+          <NavbarMenuItem key={`_${item.id}`}>
+            <Link className="w-full" href="#" size="lg">
               {item.title}
             </Link>
           </NavbarMenuItem>

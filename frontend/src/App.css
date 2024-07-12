@@ -4,3 +4,10 @@ html {
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
 }
+
+html,
+body,
+#root,
+#root > * {
+  height: 100%;
+}

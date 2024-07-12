@@ -1,4 +1,5 @@
 import { Input } from "@nextui-org/react";
+import { Form } from "react-router-dom";
 
 export const SearchInput = ({
   words,
@@ -13,22 +14,23 @@ export const SearchInput = ({
     if (!e.target.value) return setSearchResults(words);
 
     const resultsArray = words.filter((word: { word_en: string }) =>
-      word.word_en.includes(e.target.value)
+      word.word_en.toLowerCase().includes(e.target.value.toLowerCase())
     );
 
     setSearchResults(resultsArray);
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex gap-2 mb-24">
+    <Form onSubmit={handleSubmit} className="flex gap-2 mb-24" role="search">
       <Input
         type="text"
         onChange={handleSearchChange}
         placeholder="Type here to search..."
         className="min-w-[20rem] font-sans"
         size="lg"
+        name="q"
       />
-    </form>
+    </Form>
   );
 };
 
