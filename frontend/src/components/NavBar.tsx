@@ -8,7 +8,6 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   Link,
-  Button,
   Chip,
 } from "@nextui-org/react";
 
@@ -17,23 +16,27 @@ export default function App() {
 
   const menuItems = [
     {
-      d_id: 0,
-      title: "Popular",
-    },
-    {
       id: 1,
-      title: "About",
+      title: "Features",
     },
     {
       id: 2,
       title: "Saved",
+    },
+    {
+      id: 3,
+      title: "About",
+    },
+    {
+      id: 4,
+      title: "Contact",
     },
   ];
 
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
-      className="min-w-full *:max-w-[1400px] mb-52"
+      className="max-w-[1400px] min-w-full *:max-w-[1400px] mb-[min(20%,226px)]"
     >
       {/* Logo and version */}
       <NavbarContent justify="start">
@@ -41,27 +44,29 @@ export default function App() {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
-        <NavbarBrand className="*:mr-2">
-          <p className="font-bold text-inherit font-serif text-2xl">
-            LearnTerm
-          </p>
-          <Chip size="sm" variant="dot" className="hidden md:flex">
-            v0.0.1
-          </Chip>
-        </NavbarBrand>
+        <Link href="/" className="text-inherit">
+          <NavbarBrand>
+            <p className="font-bold text-inherit font-serif text-2xl">
+              LearnTerm
+            </p>
+          </NavbarBrand>
+        </Link>
+        <Chip size="sm" variant="dot" className="hidden md:flex">
+          v0.0.1
+        </Chip>
       </NavbarContent>
       {/* Menu List */}
       <NavbarContent className="hidden sm:flex gap-12" justify="center">
         {menuItems.map((item) => (
           <NavbarItem key={`${item.id}`}>
-            <Link color="foreground" href="#">
+            <Link color="foreground" href={`/${item.title.toLowerCase()}`}>
               {item.title}
             </Link>
           </NavbarItem>
         ))}
       </NavbarContent>
       {/* Buttons */}
-      <NavbarContent className="sm:flex gap-4" justify="end">
+      {/* <NavbarContent className="sm:flex gap-4" justify="end">
         <NavbarItem className="hidden lg:flex">
           <Link href="#">Login</Link>
         </NavbarItem>
@@ -70,12 +75,16 @@ export default function App() {
             Sign Up
           </Button>
         </NavbarItem>
-      </NavbarContent>
+      </NavbarContent> */}
       {/* Mobile Menu */}
       <NavbarMenu>
         {menuItems.map((item) => (
           <NavbarMenuItem key={`_${item.id}`}>
-            <Link className="w-full" href="#" size="lg">
+            <Link
+              className="w-full text-black"
+              href={`/${item.title.toLowerCase()}`}
+              size="lg"
+            >
               {item.title}
             </Link>
           </NavbarMenuItem>

@@ -1,6 +1,8 @@
 import { Input } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 
+import Magnifier from "../assets/icons/magnifier.svg";
+
 const SearchFilter = ({
   wordQuery,
   setSearchParams,
@@ -29,7 +31,7 @@ const SearchFilter = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex gap-2 mb-24"
+      className="flex gap-2 mb-20"
       autoComplete="off"
     >
       <Input
@@ -38,8 +40,9 @@ const SearchFilter = ({
         value={searchResults}
         onChange={(e) => setSearchResults(e.target.value)}
         placeholder="Type here to search..."
-        className="min-w-[20rem] font-sans"
+        className="min-w-[22rem] font-sans"
         size="lg"
+        endContent={<img src={Magnifier} alt="" />}
       />
     </form>
   );

@@ -11,3 +11,11 @@ body,
 #root > * {
   height: 100%;
 }
+
+#searchBtn {
+  cursor: pointer;
+}
+
+#searchBtn input::before {
+  content: "../src/assets/icons/magnifier.svg";
+}
