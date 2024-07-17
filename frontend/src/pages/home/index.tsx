@@ -34,9 +34,9 @@ function Home() {
   return (
     <section
       id="hero"
-      className="flex flex-col justify-center items-center px-6 font-serif text-balance text-center pb-24"
+      className="w-full flex flex-col justify-center items-center px-6 font-serif text-balance text-center pb-24"
     >
-      <h1 className="text-4xl md:text-6xl font-bold mb-4">
+      <h1 className="text-4xl md:text-6xl font-bold mb-4 font-serif">
         Mastering Economic Terminology
       </h1>
       <h2 className="text-xl md:text-2xl font-normal mb-16 font-sans">
@@ -47,7 +47,7 @@ function Home() {
         searchParams={searchParams}
         setSearchParams={setSearchParams}
       />
-      <ul className="grow">
+      <ul className="grow w-full max-w-[1200px]">
         {words
           .filter(
             (word: { word_en: string; word_az: string; word_ru: string }) =>

@@ -54,7 +54,7 @@ export default function App() {
         <Link href="/" className="text-inherit">
           <NavbarBrand>
             <p className="font-bold text-inherit font-serif text-2xl">
-              LearnTerm
+              LearnTerms
             </p>
           </NavbarBrand>
         </Link>
