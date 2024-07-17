@@ -1,7 +1,7 @@
 import { Input } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 
-import Magnifier from "../assets/icons/magnifier.svg";
+import SearchIcon from "./icons/SearchIcon";
 
 const SearchFilter = ({
   wordQuery,
@@ -42,7 +42,7 @@ const SearchFilter = ({
         placeholder="Type here to search..."
         className="min-w-[22rem] font-sans"
         size="lg"
-        endContent={<img src={Magnifier} alt="" />}
+        endContent={<SearchIcon />}
       />
     </form>
   );

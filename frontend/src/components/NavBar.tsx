@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -9,7 +9,12 @@ import {
   NavbarMenuItem,
   Link,
   Chip,
+  Button,
 } from "@nextui-org/react";
+import { ThemeContext } from "../contexts/ThemeContext";
+
+import DarkThemeIcon from "./icons/DarkThemeIcon";
+import LightThemeIcon from "./icons/LightThemeIcon";
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -32,6 +37,8 @@ export default function App() {
       title: "Contact",
     },
   ];
+
+  const { isDark, toggleTheme } = useContext(ThemeContext);
 
   return (
     <Navbar
@@ -64,6 +71,9 @@ export default function App() {
             </Link>
           </NavbarItem>
         ))}
+        <Button onClick={toggleTheme} size="md" variant="flat" isIconOnly>
+          {isDark ? <DarkThemeIcon /> : <LightThemeIcon />}
+        </Button>
       </NavbarContent>
       {/* Buttons */}
       {/* <NavbarContent className="sm:flex gap-4" justify="end">

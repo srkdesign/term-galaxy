@@ -22,7 +22,7 @@ const Word = ({ word }: { word: any }) => {
               {word.word_en}
             </h2>
           </div>
-          <ul className="flex flex-row gap-2 sm:gap-0 flex-wrap sm:flex-nowrap divide-solid sm:divide-x-1 *:pr-2 *:flex *:flex-row *:items-start md:*:items-center *:gap-4">
+          <ul className="flex flex-row gap-2 sm:gap-0 flex-wrap sm:flex-nowrap divide-solid dark:divide-slate-700 sm:divide-x-1 *:pr-2 *:flex *:flex-row *:items-start md:*:items-center *:gap-4">
             <li>
               <img src={AzerbaijanFlag} alt="Flag of Azerbaijan" />
               <h3 className="text-xl font-sans capitalize text-gray-500">

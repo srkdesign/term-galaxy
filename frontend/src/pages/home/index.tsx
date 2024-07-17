@@ -49,8 +49,11 @@ function Home() {
       />
       <ul className="grow">
         {words
-          .filter((word: { word_en: string }) =>
-            word.word_en.toLowerCase().includes(wordQuery.toLowerCase())
+          .filter(
+            (word: { word_en: string; word_az: string; word_ru: string }) =>
+              word.word_en.toLowerCase().includes(wordQuery.toLowerCase()) ||
+              word.word_az.toLowerCase().includes(wordQuery.toLowerCase()) ||
+              word.word_ru.toLowerCase().includes(wordQuery.toLowerCase())
           )
           .slice(0, 5)
           .map((word: any) => (
