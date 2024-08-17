@@ -13,7 +13,7 @@ function App() {
     <div
       className={`${
         isDark ? `dark` : `light`
-      } text-foreground bg-background min-h-full md:grid md:grid-rows-[auto_1fr_auto] md:place-items-center`}
+      } text-foreground bg-background min-h-full md:grid md:grid-rows-[auto_1fr_auto] md:justify-items-center`}
     >
       <NavBar />
       <Outlet />

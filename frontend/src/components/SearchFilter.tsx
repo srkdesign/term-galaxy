@@ -12,6 +12,7 @@ const SearchFilter = ({
   setSearchParams: any;
 }) => {
   const [searchResults, setSearchResults] = useState(wordQuery);
+  // const [debounceValue] = useDebounce(searchResults, 300);
 
   useEffect(() => {
     setSearchResults(wordQuery);
@@ -41,7 +42,9 @@ const SearchFilter = ({
         onChange={(e) => setSearchResults(e.target.value)}
         placeholder="Type here to search..."
         className="min-w-[22rem] font-sans"
+        color="warning"
         size="lg"
+        variant="bordered"
         endContent={<SearchIcon />}
       />
     </form>

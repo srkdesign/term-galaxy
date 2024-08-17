@@ -1,7 +1,7 @@
 const SavedIcon = () => {
   return (
     <svg
-      className="fill-gray-800 dark:fill-gray-200"
+      className="fill-primary-900"
       width="20"
       height="20"
       viewBox="0 0 24 24"

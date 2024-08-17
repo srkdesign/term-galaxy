@@ -1,7 +1,7 @@
 const SearchIcon = () => {
   return (
     <svg
-      className="stroke-gray-500"
+      className="stroke-foreground"
       width="20"
       height="20"
       viewBox="0 0 24 24"

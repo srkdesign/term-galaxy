@@ -1,7 +1,7 @@
 const DarkThemeIcon = () => {
   return (
     <svg
-      className="stroke-gray-500"
+      className="stroke-primary-900"
       width="24"
       height="24"
       viewBox="0 0 24 24"
