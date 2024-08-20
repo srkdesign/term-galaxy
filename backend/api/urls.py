@@ -19,7 +19,7 @@ from django.urls import path
 from api import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path("api/", views.get_word_list),
+    path("api/admin/", admin.site.urls),
     path("api/<int:id>/", views.get_word_by_id)
 ]

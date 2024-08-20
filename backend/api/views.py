@@ -13,7 +13,7 @@ def get_word_list(request):
     serializer = WordSerializer(words, many=True)
     return JsonResponse({"words": serializer.data})
 
-@api_view(["GET", "PUT", "DELETE"])
+@api_view(["GET", "POST"])
 def get_word_by_id(request, id):
 
   try:
@@ -24,7 +24,3 @@ def get_word_by_id(request, id):
   if request.method == "GET":
     serializer = WordSerializer(word)
     return Response(serializer.data)
-  elif request.method == "PUT":
-    pass
-  elif request.method == "DELETE":
-    pass
