@@ -1,19 +1,20 @@
-from django.http import JsonResponse
-from .models import Word 
-from .serializers import WordSerializer
+# from django.http import JsonResponse
+from api.models import Word 
+from api.serializers import WordSerializer
 from rest_framework.decorators import api_view
 from rest_framework import status
 from rest_framework.response import Response
 
 
-@api_view(["GET", "POST"])
+@api_view(["GET"])
 def get_word_list(request):
+  
   if request.method == "GET":
     words = Word.objects.all()
     serializer = WordSerializer(words, many=True)
-    return JsonResponse({"words": serializer.data})
+    return Response({"words": serializer.data})
 
-@api_view(["GET", "POST"])
+@api_view(["GET"])
 def get_word_by_id(request, id):
 
   try:

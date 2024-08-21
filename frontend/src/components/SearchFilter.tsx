@@ -42,7 +42,7 @@ const SearchFilter = ({
         onChange={(e) => setSearchResults(e.target.value)}
         placeholder="Type here to search..."
         className="min-w-[22rem] font-sans"
-        color="warning"
+        color="default"
         size="lg"
         variant="bordered"
         endContent={<SearchIcon />}

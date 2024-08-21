@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Word, Translation
+from api.models import Word, Translation
 
 class TranslationInline(admin.StackedInline):
   model = Translation
