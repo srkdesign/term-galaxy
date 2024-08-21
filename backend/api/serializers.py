@@ -11,7 +11,7 @@ class WordSerializer(serializers.ModelSerializer):
   
   class Meta:
     model = Word
-    fields = ["id", "entry", "meaning", "translations", "published"]
+    fields = ["id", "entry", "meaning", "translations", "source", "published"]
 
   def get_translations(self, obj):
     translations = obj.translations.all()

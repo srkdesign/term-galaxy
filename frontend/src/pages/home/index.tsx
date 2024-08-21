@@ -55,9 +55,13 @@ function Home() {
   const filteredWords = useMemo(() => {
     return words.filter(
       (word: any) =>
-        word.word_en.toLowerCase().includes(wordQuery.toLowerCase()) ||
-        word.word_az.toLowerCase().includes(wordQuery.toLowerCase()) ||
-        word.word_ru.toLowerCase().includes(wordQuery.toLowerCase())
+        word.entry.toLowerCase().includes(wordQuery.toLowerCase()) ||
+        word.translations.ru.entry
+          .toLowerCase()
+          .includes(wordQuery.toLowerCase()) ||
+        word.translations.az.entry
+          .toLowerCase()
+          .includes(wordQuery.toLowerCase())
     );
   }, [words, wordQuery]);
 

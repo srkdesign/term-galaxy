@@ -42,7 +42,7 @@ const Word = ({ word }: { word: any }) => {
               className="dark:opacity-85"
             />
             <h2 className="mb-1 font-serif text-3xl font-bold capitalize">
-              {word.word_en}
+              {word.entry}
             </h2>
           </div>
           <ul className="flex flex-row gap-2 sm:gap-0 flex-wrap sm:flex-nowrap divide-solid sm:divide-x-1 dark:divide-default-200 text-default-900 *:pr-2 *:flex *:flex-row *:items-start md:*:items-center *:gap-4">
@@ -52,7 +52,9 @@ const Word = ({ word }: { word: any }) => {
                 alt="Flag of Azerbaijan"
                 className="dark:opacity-85"
               />
-              <h3 className="font-sans text-xl capitalize">{word.word_az}</h3>
+              <h3 className="font-sans text-xl capitalize">
+                {word.translations.az.entry}
+              </h3>
             </li>
             <li className="sm:pl-[12px]">
               <img
@@ -60,7 +62,9 @@ const Word = ({ word }: { word: any }) => {
                 alt="Flag of Russian Federation"
                 className="dark:opacity-85"
               />
-              <h3 className="font-sans text-xl capitalize">{word.word_ru}</h3>
+              <h3 className="font-sans text-xl capitalize">
+                {word.translations.ru.entry}
+              </h3>
             </li>
           </ul>
         </header>
@@ -75,19 +79,19 @@ const Word = ({ word }: { word: any }) => {
             <Chip className="font-bold uppercase" size="md">
               en
             </Chip>
-            <p className="">{word.meaning_eng}</p>
+            <p className="">{word.meaning}</p>
           </li>
           <li className="flex gap-4 align-baseline">
             <Chip className="font-bold uppercase" size="md">
               az
             </Chip>
-            <p className="">{word.meaning_az}</p>
+            <p className="">{word.translations.az.meaning}</p>
           </li>
           <li className="flex gap-4 align-baseline">
             <Chip className="font-bold uppercase" size="md">
               ru
             </Chip>
-            <p className="">{word.meaning_ru}</p>
+            <p className="">{word.translations.ru.meaning}</p>
           </li>
         </ol>
       </CardBody>

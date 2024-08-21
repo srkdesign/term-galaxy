@@ -4,6 +4,7 @@ class Word(models.Model):
   entry = models.CharField(max_length=48, unique=True)
   meaning = models.TextField(max_length=512)
   published = models.DateTimeField(auto_now_add=True)
+  source = models.CharField(max_length=64)
 
   def __str__(self) -> str:
     return self.entry
@@ -19,3 +20,6 @@ class Translation(models.Model):
   language = models.CharField(max_length=2, choices=LANGUAGE_CHOICES)
   entry = models.CharField(max_length=48, default="")
   meaning = models.TextField(max_length=512, default="")
+
+  def __str__(self) -> str:
+    return self.language.upper()
