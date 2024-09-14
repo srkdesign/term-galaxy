@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Manrope";
+    font-display: swap;
+    src: url("/manrope.woff2") format("woff2");
+  }
+}

@@ -18,10 +18,10 @@ const Router = () => {
     createRoutesFromElements(
       <Route path="/" element={<App />}>
         <Route index element={<Home />} />
-        <Route path="features" element={<Features />} />
-        <Route path="about" element={<About />} />
-        <Route path="saved" element={<Saved />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="features/" element={<Features />} />
+        <Route path="about/" element={<About />} />
+        <Route path="saved/" element={<Saved />} />
+        <Route path="contact/" element={<Contact />} />
       </Route>
     )
   );

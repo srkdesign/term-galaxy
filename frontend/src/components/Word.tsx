@@ -1,12 +1,7 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Divider,
-  CardFooter,
-  Button,
-  Chip,
-} from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
+import { Chip } from "@nextui-org/chip";
+import { Button } from "@nextui-org/button";
+import { Divider } from "@nextui-org/divider";
 
 import { useContext } from "react";
 import { SavedWordsContext } from "../contexts/SavedWordsContext";
@@ -14,12 +9,13 @@ import { SavedWordsContext } from "../contexts/SavedWordsContext";
 import UnitedKingdomFlag from "../assets/flags/uk.svg";
 import AzerbaijanFlag from "../assets/flags/az.svg";
 import RussianFlag from "../assets/flags/ru.svg";
-// import SaveButton from "./SaveButton";
-// import BookmarkOutline from "../assets/icons/bookmark.svg";
 import SavedIcon from "./icons/SavedIcon";
 import NotSavedIcon from "./icons/NotSavedIcon";
+import FlagIcon from "./icons/FlagIcon";
+import { WordProps } from "../lib/types";
+import { t } from "i18next";
 
-const Word = ({ word }: { word: any }) => {
+const Word = ({ word }: { word: WordProps }) => {
   const { addToSavedWords, removeFromSavedWords, isWordSaved } =
     useContext(SavedWordsContext);
 
@@ -32,37 +28,25 @@ const Word = ({ word }: { word: any }) => {
   };
 
   return (
-    <Card className="mb-4 pt-4 *:px-6 text-left" shadow="sm">
-      <CardHeader className="flex items-start justify-between">
+    <Card className="pt-4 *:px-6 text-left" shadow="sm">
+      <CardHeader className="flex items-start justify-between gap-5">
         <header className="flex flex-col items-start pb-4">
-          <div className="flex items-start gap-4 mb-1">
-            <img
-              src={UnitedKingdomFlag}
-              alt="Flag of United Kingdom"
-              className="dark:opacity-85"
-            />
-            <h2 className="mb-1 font-serif text-3xl font-bold capitalize">
+          <div className="flex items-start gap-2 mb-1 md:gap-3">
+            <FlagIcon src={UnitedKingdomFlag} alt="Flag of United Kingdom" />
+            <h2 className="mb-3 font-serif text-xl font-bold capitalize md:text-3xl">
               {word.entry}
             </h2>
           </div>
-          <ul className="flex flex-row gap-2 sm:gap-0 flex-wrap sm:flex-nowrap divide-solid sm:divide-x-1 dark:divide-default-200 text-default-900 *:pr-2 *:flex *:flex-row *:items-start md:*:items-center *:gap-4">
+          <ul className="flex flex-row gap-3 md:gap-5 flex-wrap lg:flex-nowrap text-default-900 *:pr-2 *:flex *:flex-row *:items-start md:*:items-center *:gap-2 md:*:gap-3 [&>li>h3]:opacity-80 [&>li>h3]:text-lg [&>li>h3]:md:text-xl [&>li>h3]:capitalize">
             <li>
-              <img
-                src={AzerbaijanFlag}
-                alt="Flag of Azerbaijan"
-                className="dark:opacity-85"
-              />
-              <h3 className="font-sans text-xl capitalize">
+              <FlagIcon src={AzerbaijanFlag} alt="Flag of Azerbaijan" />
+              <h3>
                 {word.translations.az.entry}
               </h3>
             </li>
-            <li className="sm:pl-[12px]">
-              <img
-                src={RussianFlag}
-                alt="Flag of Russian Federation"
-                className="dark:opacity-85"
-              />
-              <h3 className="font-sans text-xl capitalize">
+            <li>
+              <FlagIcon src={RussianFlag} alt="Flag of Russian Federation" />
+              <h3>
                 {word.translations.ru.entry}
               </h3>
             </li>
@@ -73,32 +57,32 @@ const Word = ({ word }: { word: any }) => {
         </Button>
       </CardHeader>
       <Divider />
-      <CardBody className="py-4 font-sans text-lg">
-        <ol className="flex flex-col gap-4">
-          <li className="flex gap-4 align-baseline">
-            <Chip className="font-bold uppercase" size="md">
+      <CardBody className="py-8 font-sans text-lg">
+        <ol className="flex flex-col gap-4 *:flex *:flex-col *:md:flex-row *:gap-4 *:align-baseline *:[not(:last-child)]:mb-2 [&>li>p]:text-default-800">
+          <li>
+            <Chip className="font-bold uppercase opacity-60" size="md">
               en
             </Chip>
-            <p className="">{word.meaning}</p>
+            <p>{word.meaning}</p>
           </li>
-          <li className="flex gap-4 align-baseline">
-            <Chip className="font-bold uppercase" size="md">
+          <li>
+            <Chip className="font-bold uppercase opacity-60" size="md">
               az
             </Chip>
-            <p className="">{word.translations.az.meaning}</p>
+            <p>{word.translations.az.meaning}</p>
           </li>
-          <li className="flex gap-4 align-baseline">
-            <Chip className="font-bold uppercase" size="md">
+          <li>
+            <Chip className="font-bold uppercase opacity-60" size="md">
               ru
             </Chip>
-            <p className="">{word.translations.ru.meaning}</p>
+            <p>{word.translations.ru.meaning}</p>
           </li>
         </ol>
       </CardBody>
       <Divider />
       <CardFooter className="py-4">
-        <small className="uppercase">
-          <span className="mr-1 font-serif font-bold">Source:</span>
+        <small className="flex justify-between w-full uppercase text-primary-100">
+          <span className="mr-1 font-serif font-bold">{t("source")}</span>
           {word.source}
         </small>
       </CardFooter>

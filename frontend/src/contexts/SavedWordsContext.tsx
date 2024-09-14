@@ -1,14 +1,15 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
+import { WordProps } from "../lib/types";
 
 type SavedWordsContextProviderProps = {
   children: ReactNode;
 };
 
 type SavedWordsContextProvider = {
-  savedWords: Array<string>;
-  addToSavedWords: any;
-  removeFromSavedWords: any;
-  isWordSaved: any;
+  savedWords: Array<WordProps>;
+  addToSavedWords: (word: WordProps) => void;
+  removeFromSavedWords: (word: WordProps) => void;
+  isWordSaved: (word: WordProps) => boolean;
 };
 
 export const SavedWordsContext = createContext({} as SavedWordsContextProvider);
@@ -25,41 +26,19 @@ export const SavedWordsProvider = ({
     localStorage.setItem("savedWords", JSON.stringify(savedWords));
   }, [savedWords]);
 
-  const addToSavedWords = (word: any) => {
-    setSavedWords((prevWords: any) => [...prevWords, word]);
+  const addToSavedWords = (word: WordProps) => {
+    setSavedWords((prevWords: WordProps[]) => [...prevWords, word]);
   };
 
-  const removeFromSavedWords = (word: any) => {
-    setSavedWords((prevWords: any) =>
-      prevWords.filter((w: any) => w.id !== word.id)
+  const removeFromSavedWords = (word: WordProps) => {
+    setSavedWords((prevWords: WordProps[]) =>
+      prevWords.filter((w: WordProps) => w.id !== word.id)
     );
   };
 
-  const isWordSaved = (word: any) => {
-    return savedWords.some((w: any) => w.id === word.id);
+  const isWordSaved = (word: WordProps) => {
+    return savedWords.some((w: WordProps) => w.id === word.id);
   };
-
-  // OLD
-  // const addToSaved = (word: any) => {
-  //   const isWordSaved = savedWords.find(
-  //     (savedWord: any) => savedWord.id === word.id
-  //   );
-
-  //   if (isWordSaved) {
-  //     setSavedWords([...savedWords, { ...word }]);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   localStorage.setItem("savedWords", JSON.stringify(savedWords));
-  // }, [savedWords]);
-
-  // useEffect(() => {
-  //   const storedSavedWords = localStorage.getItem("savedWords");
-  //   if (storedSavedWords) {
-  //     setSavedWords(JSON.parse(storedSavedWords));
-  //   }
-  // }, []);
 
   return (
     <SavedWordsContext.Provider

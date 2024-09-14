@@ -1,24 +1,26 @@
-import "./App.css";
-
+import { useContext, Suspense } from "react";
 import { Outlet } from "react-router-dom";
+
+import { ThemeContext } from "./contexts/ThemeContext";
 
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import { useContext } from "react";
-import { ThemeContext } from "./contexts/ThemeContext";
+
+import "./App.css";
 
 function App() {
   const { isDark } = useContext(ThemeContext);
   return (
-    <div
-      className={`${
-        isDark ? `dark` : `light`
-      } text-foreground bg-background min-h-full md:grid md:grid-rows-[auto_1fr_auto] md:justify-items-center`}
-    >
-      <NavBar />
-      <Outlet />
-      <Footer />
-    </div>
+    <Suspense fallback="Translations are loading...">
+      <div
+        className={`${isDark ? `dark bg-dark` : `light bg-light`
+          } text-foreground bg-background min-h-full md:grid xl:grid-rows-[auto_1fr_auto] xl:justify-items-center xl:grid-cols-8 md:grid-cols-6 antialiased`}
+      >
+        <NavBar />
+        <Outlet />
+        <Footer />
+      </div>
+    </Suspense>
   );
 }
 

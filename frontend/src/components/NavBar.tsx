@@ -1,5 +1,15 @@
-import React, { useContext } from "react";
+import { useContext, useReducer, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+
+import { useTranslation } from "react-i18next";
+import { getLocale } from "../utils/helpers";
+import LanguageIcon from "./icons/LanguageIcon";
+
+import { NavLink } from "react-router-dom";
+
+import { Chip } from "@nextui-org/chip";
+import { Link } from "@nextui-org/link";
+import { Button } from "@nextui-org/button";
 import {
   Navbar,
   NavbarBrand,
@@ -8,44 +18,72 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Chip,
-  Button,
-} from "@nextui-org/react";
-import { NavLink } from "react-router-dom";
+} from "@nextui-org/navbar";
+import {
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@nextui-org/dropdown";
+import type { Selection } from "@nextui-org/react";
 
 import DarkThemeIcon from "./icons/DarkThemeIcon";
 import LightThemeIcon from "./icons/LightThemeIcon";
+import Logo from "./vectors/Logo";
 
-import Logo from "../assets/logo2.png";
+export default function NavBar() {
+  const [isMenuOpen, setIsMenuOpen] = useReducer((current) => !current, false);
 
-export default function App() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { t, i18n } = useTranslation();
 
   const menuItems = [
     {
       id: 1,
-      title: "Features",
+      title: t("features_heading"),
+      slug: "features",
     },
     {
       id: 2,
-      title: "Saved",
+      title: t("saved_heading"),
+      slug: "saved",
     },
     {
       id: 3,
-      title: "About",
+      title: t("about_heading"),
+      slug: "about",
     },
     {
       id: 4,
-      title: "Contact",
+      title: t("contacts_heading"),
+      slug: "contact",
     },
   ];
+
+  interface LocaleProps {
+    title: string;
+  }
+
+  interface LocaleListProps {
+    [locale: string]: LocaleProps;
+  }
+
+  const locales: LocaleListProps = {
+    en: { title: "English" },
+    ru: { title: "Русский" },
+    az: { title: "Azərbaycan" },
+  };
+
+  const [selectedLocale, setSelectedLocale] = useState<Selection>(
+    new Set([getLocale() || i18n.language])
+  );
 
   const { isDark, toggleTheme } = useContext(ThemeContext);
 
   return (
     <Navbar
       onMenuOpenChange={setIsMenuOpen}
-      className="max-w-[1400px] min-w-full *:max-w-[1400px] mb-[min(20%,226px)]"
+      className="py-3 mb-12 col-span-full xl:col-span-6 xl:col-start-2 "
+      maxWidth="full"
     >
       {/* Logo and version */}
       <NavbarContent justify="start" className="flex gap-6">
@@ -55,16 +93,13 @@ export default function App() {
         />
         <NavLink to="/" className="text-inherit">
           <NavbarBrand className="flex items-start gap-1.5">
-            {/* <img src={Logo} alt="" className="max-w-[30px] h-full" /> */}
-            <p className="font-serif text-2xl font-bold text-inherit ">
-              LearnTerms
-            </p>
+            <Logo />
           </NavbarBrand>
         </NavLink>
         <Chip
           size="sm"
           variant="dot"
-          className="hidden md:flex"
+          className="hidden xl:flex"
           color="default"
         >
           v0.0.1
@@ -74,36 +109,55 @@ export default function App() {
       <NavbarContent className="hidden gap-12 sm:flex" justify="center">
         {menuItems.map((item) => (
           <NavbarItem key={`${item.id}`}>
-            <NavLink color="foreground" to={`/${item.title.toLowerCase()}`}>
+            <NavLink className="opacity-80" color="foreground" to={`/${item.slug.toLowerCase()}/`}>
               {item.title}
             </NavLink>
           </NavbarItem>
         ))}
+      </NavbarContent>
+      {/* Buttons */}
+      <NavbarContent justify="end">
+        <Dropdown className={`${isDark ? `dark` : `light`}`}>
+          <DropdownTrigger>
+            <Button isIconOnly variant="flat">
+              <LanguageIcon />
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu
+            className="text-foreground"
+            aria-label="Single selection example"
+            variant="flat"
+            disallowEmptySelection
+            selectionMode="single"
+            selectedKeys={selectedLocale}
+            onSelectionChange={setSelectedLocale}
+          >
+            {Object.keys(locales).map((locale) => (
+              <DropdownItem
+                key={locale}
+                onClick={() => i18n.changeLanguage(locale)}
+              >
+                {locales[locale].title}
+              </DropdownItem>
+            ))}
+          </DropdownMenu>
+        </Dropdown>
+
         <Button onClick={toggleTheme} size="md" variant="flat" isIconOnly>
           {isDark ? <DarkThemeIcon /> : <LightThemeIcon />}
         </Button>
       </NavbarContent>
-      {/* Buttons */}
-      {/* <NavbarContent className="gap-4 sm:flex" justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent> */}
       {/* Mobile Menu */}
-      <NavbarMenu>
+      <NavbarMenu className={`${isDark ? `dark` : `light`} pt-8`}>
         {menuItems.map((item) => (
           <NavbarMenuItem key={`_${item.id}`}>
-            <NavLink
-              className="w-full text-black"
-              to={`/${item.title.toLowerCase()}`}
+            <Link
+              className="w-full text-foreground"
+              href={`/${item.slug.toLowerCase()}/`}
+              onPress={() => setIsMenuOpen()}
             >
               {item.title}
-            </NavLink>
+            </Link>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>

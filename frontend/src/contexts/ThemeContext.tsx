@@ -1,12 +1,12 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 
 type ThemeContextProviderProps = {
   children: ReactNode;
 };
 
 type ThemeContextProvider = {
-  isDark: Boolean;
-  toggleTheme: any;
+  isDark: boolean;
+  toggleTheme: () => void;
 };
 
 export const ThemeContext = createContext({} as ThemeContextProvider);
@@ -14,18 +14,20 @@ export const ThemeContext = createContext({} as ThemeContextProvider);
 export default function ThemeContextProvider({
   children,
 }: ThemeContextProviderProps) {
-  const [isDark, setIsDark] = useState(false);
+  const getSavedTheme = () => {
+    const savedTheme = localStorage.getItem("isDark");
+    if (savedTheme == null) {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    return JSON.parse(savedTheme);
+  };
+
+  const [isDark, setIsDark] = useState<boolean>(getSavedTheme);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
     localStorage.setItem("isDark", JSON.stringify(!isDark));
   };
-
-  const currentTheme = localStorage.getItem("isDark") || "false";
-
-  useEffect(() => {
-    setIsDark(currentTheme === "true");
-  }, [currentTheme]);
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>
