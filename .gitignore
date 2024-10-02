@@ -1,6 +1,6 @@
 # General
 .env
-build
+# build
 *.sqlite3
 
 # Data

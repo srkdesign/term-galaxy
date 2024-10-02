@@ -16,7 +16,8 @@ const fetchWords = async (
 
 const useWords = (params: WordQueryParamsProps) =>
   useQuery<WordResponseProps, Error>({
-    cacheTime: 1000 * 60 * 60,
+    staleTime: 5 * 60 * 1000,
+    cacheTime: 10 * 60 * 1000,
     queryKey: ["words", params],
     queryFn: () => fetchWords(params),
     keepPreviousData: true,

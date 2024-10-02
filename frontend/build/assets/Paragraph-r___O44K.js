@@ -1,0 +1,1 @@
+import{m as r}from"./index-CP5hUk6v.js";const o=({title:s,text:e})=>r.jsxs("section",{className:"prose prose-xl prose-neutral dark:prose-invert max-w-none",children:[r.jsx("h3",{children:s}),r.jsx("p",{children:e})]});export{o as P};

@@ -35,7 +35,7 @@ ALLOWED_HOSTS = [
   "localhost",
   "127.0.0.1",
   # Production
-  "learntermsapp.pythonanywhere.com",
+  "termgalaxy.pythonanywhere.com",
 ]
 
 # Application definition
@@ -75,6 +75,7 @@ CORS_ALLOWED_ORIGINS = [
   "http://127.0.0.1:5173",
   "http://localhost:8000",
   "http://127.0.0.1:8000",
+  "termgalaxy.pythonanywhere.com"
 ]
 
 CORS_ALLOW_HEADERS = [
@@ -120,10 +121,6 @@ DATABASES = {
       "charset": "utf8mb4",
     }
   }
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
 }
 
 

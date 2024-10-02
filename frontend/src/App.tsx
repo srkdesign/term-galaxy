@@ -7,11 +7,12 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
 import "./App.css";
+import Loading from "./components/Loading";
 
 function App() {
   const { isDark } = useContext(ThemeContext);
   return (
-    <Suspense fallback="Translations are loading...">
+    <Suspense fallback={<Loading />}>
       <div
         className={`${isDark ? `dark bg-dark` : `light bg-light`
           } text-foreground bg-background min-h-full md:grid xl:grid-rows-[auto_1fr_auto] xl:justify-items-center xl:grid-cols-8 md:grid-cols-6 antialiased`}

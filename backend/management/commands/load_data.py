@@ -56,7 +56,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
 
-        with open('utils/data.json', 'r', encoding='utf-8') as file:
+        with open('backend/utils/data.json', 'r', encoding='utf-8') as file:
             try:
                 json_data = json.load(file)
             except json.JSONDecodeError:

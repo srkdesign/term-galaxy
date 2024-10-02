@@ -8,9 +8,9 @@ import { DEBOUNCE_TIME, LIMIT } from "../lib/constants";
 import { WordProps } from "../lib/types";
 
 import WordList from "./WordList";
-import { debounce } from "lodash";
 import SearchForm from "./SearchForm";
 import LoadMoreButton from "./LoadMoreButton";
+import useDebouncedCallback from "../hooks/useDebouncedCallback";
 
 const Search = () => {
   // Set initial values for fetching data
@@ -54,12 +54,14 @@ const Search = () => {
   }, [query]);
 
   // Using debounce to optimize performance
-  const handleLoadMore = useCallback(
-    debounce(() => {
-      setOffset((prevOffset) => prevOffset + LIMIT);
-    }, DEBOUNCE_TIME),
-    [LIMIT]
-  );
+  const updateOffset = useCallback(() => {
+    setOffset((prevOffset) => prevOffset + LIMIT);
+  }, []);
+
+  const handleLoadMore = useDebouncedCallback({
+    callback: updateOffset,
+    delay: DEBOUNCE_TIME,
+  });
 
   useEffect(() => {
     if (data && data.results) {
