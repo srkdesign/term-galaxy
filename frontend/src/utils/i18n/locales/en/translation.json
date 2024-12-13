@@ -1,5 +1,5 @@
 {
-  "home_heading": "Become a better learner",
+  "home_heading": "Unlock your Galaxy of Terms",
   "home_description": "With essential guide to economic terminology in English, Russian and Azerbaijani",
   "search_input": "Type here to search...",
   "source": "Source",
@@ -8,10 +8,28 @@
   "saved_description": "Here you can find all the words that you saved",
   "features_heading": "Features",
   "features_description": "Here is a list of all features of our app",
-  "contacts_heading": "Contacts",
+  "contacts_heading": "Contact Us",
   "contacts_description": "Got questions or feedback? We’d love to hear from you!",
   "about_heading": "About",
   "about_description": "Welcome to Term Galaxy, your ultimate destination for mastering terminology across three languages!",
   "sources_heading": "Sources",
-  "footer_copyright": "All rights reserved"
+  "footer_copyright": "All rights reserved",
+  "about_main": "Whether you're a student, a professional, or just passionate about languages, our platform is designed to help you expand your vocabulary and deepen your understanding of key terms. At Term Galaxy, we believe that language is the key to unlocking new opportunities and building connections. That’s why we’ve created an intuitive, user-friendly platform for learners of all levels. No matter where you are on your language journey, Term Galaxy empowers you to explore, learn, and grow.",
+  "about_mission_heading": "Mission",
+  "about_mission": "Our mission is simple: to make learning terms fun, accessible, and effective for everyone. Whether you’re preparing for exams, learning for work, or simply want to stay multilingual, we’re here to support your goals.",
+  "contact_email": "Email:",
+  "contact_support_heading": "Additional Support",
+  "contact_support": "For additional support, feel free to reach out via our contact form, and we’ll respond within 24 hours.",
+
+  "features_languages_heading": "Three-Language Learning",
+  "features_languages": "Explore and master terms in three different languages, with options for side-by-side comparisons.",
+  "features_glossaries_heading": "Comprehensive Glossaries",
+  "features_glossaries": "Access an extensive continuously growing database.",
+  "features_paths_heading": "Customizable Learning Paths",
+  "features_paths": "Choose terms that interest you the most and build your own personalized learning experience.",
+  "features_mobile_heading": "Mobile-Friendly",
+  "features_mobile": " Learn on the go! Our platform is optimized for all devices, so you can study wherever you are.",
+  "heading_submit_word": "Got a Word in Mind?",
+  "paragraph_submit_word": "Submit your term suggestion and help expand our multilingual galaxy!",
+  "button_submit_word": "Submit a word"
 }

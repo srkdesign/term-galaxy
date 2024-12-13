@@ -9,7 +9,7 @@ interface LoadMoreButtonProps {
 const LoadMoreButton = ({ onClick, show }: LoadMoreButtonProps) => {
   if (!show) return null;
   return (
-    <Button onClick={onClick} className="mt-10">
+    <Button onClick={onClick} className="mt-10 w-fit">
       {t("load_more_button")}
     </Button>
   );

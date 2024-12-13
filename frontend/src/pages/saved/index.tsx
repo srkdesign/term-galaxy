@@ -14,6 +14,7 @@ const Saved = () => {
         heading={t("saved_heading")}
         description={t("saved_description")}
         isHome={false}
+        marginBottom={20}
       />
       <WordList items={savedWords} isReverse={true} />
     </Page>

@@ -88,7 +88,7 @@ const Search = () => {
     );
 
   return (
-    <>
+    <section className="flex flex-col items-center w-full">
       <SearchForm
         input={input}
         onChange={handleChange}
@@ -97,7 +97,7 @@ const Search = () => {
       <WordList items={words} isReverse={false} />
       {/* Show Load More Button only when there is a next page */}
       <LoadMoreButton onClick={handleLoadMore} show={!!data?.next} />
-    </>
+    </section>
   );
 };
 

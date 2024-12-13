@@ -52,7 +52,7 @@ export default {
             background: "#1C1C1C",
             divider: "#707070",
             primary: {
-              DEFAULT: "#BCBCBC",
+              DEFAULT: "#363636",
               900: "#FFFFFF", // Icons
               100: "#6E6E6E", // Icons
             },

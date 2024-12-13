@@ -4,11 +4,12 @@ type HeroProps = {
   heading: string;
   description: string;
   isHome: boolean;
+  marginBottom: number;
 };
 
-const Hero = ({ heading, description, isHome }: HeroProps) => {
+const Hero = ({ heading, description, isHome, marginBottom }: HeroProps) => {
   return (
-    <section className="grid grid-cols-subgrid grid-rows-1 *:row-start-1 place-items-center justify-items-center *:col-span-full mb-20">
+    <section className={`grid grid-cols-subgrid grid-rows-1 *:row-start-1 place-items-center justify-items-center *:col-span-full mb-${marginBottom} w-full`}>
       <div className="z-10 flex flex-col items-center text-center">
         <h1 className="mb-4 text-5xl font-medium tracking-tighter md:text-6xl">
           {heading}

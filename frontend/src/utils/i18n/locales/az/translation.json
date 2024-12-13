@@ -1,5 +1,5 @@
 {
-  "home_heading": "İqtisadi terminologiyada master olun",
+  "home_heading": "Termlər Qalaktikanı Kəşf et",
   "home_description": "Rus, Azərbaycan və İngilis dillərində bələdçiniz",
   "search_input": "Axtarmaq üçün bura yazın...",
   "load_more_button": "Daha çox yüklə...",
@@ -7,9 +7,29 @@
   "saved_description": "Burada indiyə qədər saxladığınız bütün sözləri tapacaqsınız",
   "features_heading": "Xüsusiyyətlər",
   "features_description": "Burada proqramımızın bütün xüsusiyyətlərini öyrənə bilərsiniz",
-  "contacts_heading": "Əlaqə",
-  "contacts_description": "Bizimlə aşağıdakı üsullardan biri ilə əlaqə saxlaya bilərsiniz",
-  "about_heading": "Haqqında",
-  "about_description": "Bu layihəni yaratmaq qərarına gəlməyimizin səbəbləri haqqında",
-  "footer_copyright": "Əsərlərin bütün hüquqları qorunur"
+  "contacts_heading": "Bizimlə Əlaqə",
+  "contacts_description": "Sualınız və ya rəyiniz var? Sizdən eşitməyə şad olarıq!",
+  "about_heading": "Haqqımızda",
+  "about_description": "Term Galaxy-ə xoş gəldiniz! Üç dildə terminologiyanı mənimsəmək üçün ən son dayanacağınız yer!",
+  "footer_copyright": "Əsərlərin bütün hüquqları qorunur",
+
+  "about_main": "Tələbə, peşəkar və ya sadəcə dillərə maraq göstərən biri olmağınızdan asılı olmayaraq, platformamız söz ehtiyatınızı genişləndirmək və əsas terminləri dərindən başa düşmək üçün hazırlanmışdır. Term Galaxy-də inanırıq ki, dil yeni imkanların açarıdır və əlaqələr qurmağın vasitəsidir. Məhz buna görə biz bütün səviyyələrdə öyrənənlər üçün intuitiv, istifadəsi rahat bir platforma yaratmışıq. Dil öyrənmə səyahətinizin hansı mərhələsində olmağınızdan asılı olmayaraq, Term Galaxy sizə araşdırmaq, öyrənmək və inkişaf etmək imkanı verir.",
+  "about_mission_heading": "Missiya",
+  "about_mission": "Missiyamız sadədir: terminləri öyrənməyi hər kəs üçün əyləncəli, əlçatan və təsirli etmək. İmtahanlara hazırlaşırsınız, iş üçün öyrənirsiniz, ya da sadəcə çoxdilli qalmaq istəyirsinizsə, biz sizin məqsədlərinizi dəstəkləmək üçün buradayıq.",
+
+  "contact_email": "E-poçt:",
+  "contact_support_heading": "Əlavə dəstək",
+  "contact_support": "Əlavə dəstək üçün bizim əlaqə formamızdan da istifadə edə bilərsiniz, və biz 24 saat ərzində cavab verəcəyik.",
+
+  "features_languages_heading": "Üç Dildə Öyrənmə",
+  "features_langiages": "Üç müxtəlif dildə terminləri araşdırın və mənimsəyin, yanaşı müqayisə etmə seçimi ilə.",
+  "features_glossaries_heading": "Əhatəli Lüğətlər",
+  "features_glossaries": "Dayanmadan genişlənən böyük bir məlumat bazasına çıxış əldə edin.",
+  "features_paths_heading": "Fərdiləşdirilə bilən Tədris Yollar",
+  "features_paths": "Ən çox maraqlandığınız terminləri seçin və öz şəxsi təhsil təcrübənizi yaradın.",
+  "features_mobile_heading": "Mobil Dostluq",
+  "features_mobile": "Hər yerdə öyrənin! Platformamız bütün cihazlar üçün optimallaşdırılıb, beləliklə, harada olmağınızdan asılı olmayaraq öyrənə bilərsiniz.",
+  "heading_submit_word": "Ağlınızda bir söz var?",
+  "paragraph_submit_word": "Terminizi göndərin və çoxdilli qalaktikamızı genişləndirməyə kömək edin!",
+  "button_submit_word": "Buradan Göndərin"
 }
