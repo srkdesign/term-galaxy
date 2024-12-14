@@ -1,0 +1,1 @@
+import{r,X as o,m as s,P as e}from"./index-BkwSO0kB.js";import{P as a,H as i}from"./Hero-MY6WE5jX.js";import{W as d}from"./WordList-CkToGvdZ.js";const p=()=>{const{savedWords:t}=r.useContext(o);return s.jsxs(a,{children:[s.jsx(i,{heading:e("saved_heading"),description:e("saved_description"),isHome:!1,marginBottom:20}),s.jsx(d,{items:t,isReverse:!0})]})};export{p as default};

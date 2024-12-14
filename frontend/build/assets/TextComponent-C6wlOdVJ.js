@@ -1,1 +1,0 @@
-import{m as s}from"./index-BZzlVWES.js";const r=({children:e})=>s.jsx("section",{className:"prose prose-xl dark:prose-invert max-w-none prose-headings:text-3xl prose-headings:font-medium",children:e});export{r as T};
